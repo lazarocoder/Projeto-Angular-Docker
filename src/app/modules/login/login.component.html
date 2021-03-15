@@ -1,0 +1,17 @@
+<form [formGroup]="formLogin" (submit)="logar()" class="p-fluid p-formgrid p-grid p-col-12 p-md-6 p-offset-3">
+    <div class="p-field p-col-12">
+      <label for="login">Login</label>
+      <input id="login" type="text" aria-describedby="login-help" pInputText formControlName="login" />
+      <small id="login-help" class="p-error" *ngIf="formLogin.get('login')!.invalid
+      && (formLogin.get('login')!.dirty || formLogin.get('login')!.touched)" >Login é obrigatório</small>
+    </div>
+    <div class="p-field p-col-12">
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" aria-describedby="senha-help" pPassword formControlName="senha" [feedback]="false" />
+      <small id="senha-help" class="p-error" *ngIf="formLogin.get('senha')!.invalid
+      && (formLogin.get('senha')!.dirty || formLogin.get('senha')!.touched)" >Senha é obrigatória</small>
+    </div>
+    <div class="p-field p-col-12">
+      <button pButton type="submit" label="Entrar"></button>
+    </div>
+</form>

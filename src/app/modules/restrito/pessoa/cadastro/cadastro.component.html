@@ -1,0 +1,54 @@
+<form [formGroup]="formCadastro" (submit)="salvar()" class="p-fluid p-grid p-formgrid p-col-12">
+  <div class="p-field p-col-12 p-md-6 p-lg-9">
+    <label for="nome">Nome</label>
+    <input id="nome" type="text" aria-describedby="nome-help" pInputText formControlName="nome" />
+    <small id="nome-help" class="p-error" *ngIf="formCadastro.get('nome')!.invalid
+    && (formCadastro.get('nome')!.dirty || formCadastro.get('nome')!.touched)">Nome da pessoa é obrigatório</small>
+  </div>
+
+  <div class="p-field p-col-12 p-md-6 p-lg-3">
+    <label for="cpf">CPF</label>
+    <p-inputMask id="cpf" aria-describedby="cpf-help" mask="999.999.999-99" formControlName="cpf"></p-inputMask>
+    <small id="cpf-help" class="p-error" *ngIf="formCadastro.get('cpf')!.invalid
+    && (formCadastro.get('cpf')!.dirty || formCadastro.get('cpf')!.touched)">CPF da pessoa é obrigatório</small>
+  </div>
+
+  <div class="p-field p-col-12 p-md-6 p-lg-3">
+    <label for="sexo">Sexo</label>
+    <p-dropdown [options]="sexos" aria-describedby="sexo-help" formControlName="sexo" placeholder="Selecione um sexo" 
+    optionLabel="label" optionValue="value"></p-dropdown>
+    <small id="sexo-help" class="p-error" *ngIf="formCadastro.get('sexo')!.invalid
+    && (formCadastro.get('sexo')!.dirty || formCadastro.get('sexo')!.touched)">Sexo da pessoa é obrigatório</small>
+  </div>
+
+  <div class="p-field p-col-12 p-md-6 p-lg-9">
+    <label for="email">E-mail</label>
+    <input id="email" type="email" aria-describedby="email-help" pInputText formControlName="email" [email]="true"/>
+    <small id="email-help" class="p-error" *ngIf="formCadastro.get('email')!.invalid
+    && (formCadastro.get('email')!.dirty || formCadastro.get('email')!.touched)">E-mail da pessoa é obrigatório</small>
+  </div>
+
+  <div class="p-field p-col-12 p-md-6 p-lg-3">
+    <label for="dataNascimento">Data de Nascimento</label>
+    <p-calendar aria-describedby="dataNascimento-help" [showIcon]="true" inputId="dataNascimento" formControlName="dataNascimento"
+    dateFormat="dd/mm/yy"></p-calendar>
+  </div>
+
+  <div class="p-field p-col-12 p-md-6 p-lg-9">
+    <label for="naturalidade">Naturalidade</label>
+    <input id="naturalidade" type="text" aria-describedby="naturalidade-help" pInputText formControlName="naturalidade" />
+    <small id="naturalidade-help" class="p-error" *ngIf="formCadastro.get('naturalidade')!.invalid
+    && (formCadastro.get('naturalidade')!.dirty || formCadastro.get('naturalidade')!.touched)">Naturalidade da pessoa é obrigatório</small>
+  </div>
+  
+  <div class="p-field p-col-12 p-md-6 p-lg-9">
+    <label for="nacionalidade">Nacionalidade</label>
+    <input id="nacionalidade" type="text" aria-describedby="nacionalidade-help" pInputText formControlName="nacionalidade" />
+    <small id="nacionalidade-help" class="p-error" *ngIf="formCadastro.get('nacionalidade')!.invalid
+    && (formCadastro.get('nacionalidade')!.dirty || formCadastro.get('nacionalidade')!.touched)">Nacionalidade da pessoa é obrigatório</small>
+  </div>
+
+  <div class="p-field p-col-12">
+    <button pButton type="submit" label="Salvar"></button>
+  </div>
+</form>
