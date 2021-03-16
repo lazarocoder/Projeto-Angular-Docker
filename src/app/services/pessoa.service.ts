@@ -15,7 +15,7 @@ export class PessoaService {
     return this.http.post<Pessoa>(
       SERVER_API_URL + 'pessoas',
       JSON.stringify(pessoa),
-      { observe: "response" }) 
+      { observe: "response" })
       .pipe(map((res: HttpResponse<Pessoa>) => res));
   }
 
@@ -28,19 +28,19 @@ export class PessoaService {
   }
 
   listar(): Observable<HttpResponse<Pessoa[]>> {
-    return this.http.get<Pessoa[]>(SERVER_API_URL + 'pessoas',
+    return this.http.get<Pessoa[]>(SERVER_API_URL + '/pessoas',
       { observe: "response" })
       .pipe(map((res: HttpResponse<Pessoa[]>) => res));
   }
 
   buscar(id: number): Observable<HttpResponse<Pessoa>> {
-    return this.http.get<Pessoa>(SERVER_API_URL + `pessoas/${id}`,
+    return this.http.get<Pessoa>(SERVER_API_URL + `/pessoas/${id}`,
       { observe: "response" })
       .pipe(map((res: HttpResponse<Pessoa>) => res));
   }
 
   excluir(id: number): Observable<HttpResponse<{ }>> {
-    return this.http.delete(SERVER_API_URL + `pessoas/${id}`,
+    return this.http.delete(SERVER_API_URL + `/pessoas/${id}`,
       { observe: "response" });
   }
 

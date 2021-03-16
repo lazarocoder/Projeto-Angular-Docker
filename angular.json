@@ -70,7 +70,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "desafio:build"
+            "browserTarget": "desafio:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -81,7 +82,8 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "desafio:build"
+            "browserTarget": "desafio:build",
+            "proxyConfig": "proxy.conf.json"
           }
         },
         "test": {
@@ -131,6 +133,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "desafio"
+    }
+  },
+  "defaultProject": "desafio",
+  "cli": {
+    "analytics": "1c70c659-1998-4c6a-9221-89d616ac29b5"
+  }
 }

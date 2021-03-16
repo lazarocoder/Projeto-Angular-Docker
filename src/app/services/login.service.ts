@@ -15,9 +15,9 @@ export class LoginService {
     const auth = btoa(`${user.login}:${user.senha}`);
     const headersRequest = new HttpHeaders({'Content-Type': 'application/json',
             'Authorization': `Basic ${auth}`});
-    return this.http.get<boolean>(SERVER_API_URL + 'login',
+    return this.http.get<boolean>(SERVER_API_URL + '/login',
       { headers:headersRequest,observe: "response" })
       .pipe(map((res: HttpResponse<boolean>) => res));
   }
-  
+
 }

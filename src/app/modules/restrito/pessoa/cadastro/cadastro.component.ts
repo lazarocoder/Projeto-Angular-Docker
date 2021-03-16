@@ -31,7 +31,7 @@ export class CadastroComponent implements OnInit {
       nacionalidade: ['', Validators.required],
       dataNascimento: ['']
     });
-    this.activatedRoute.data.subscribe(result=>{ 
+    this.activatedRoute.data.subscribe(result=>{
       if(result.pessoa){
         result.pessoa.dataNascimento = new Date(result.pessoa.dataNascimento);
         this.formCadastro.patchValue(result.pessoa);
@@ -39,8 +39,8 @@ export class CadastroComponent implements OnInit {
     });
   }
 
-  salvar() { 
-    if(this.formCadastro.valid){ 
+  salvar() {
+    if(this.formCadastro.valid){
       const pessoa:Pessoa = this.formCadastro.getRawValue();
       if (pessoa.id == null || pessoa.id === undefined) {
         this.pessoaService.adicionar(pessoa).subscribe(res => {
@@ -52,7 +52,7 @@ export class CadastroComponent implements OnInit {
         });
       }
     }else{
-      console.log("INVALIDO");
+
     }
   }
 }
